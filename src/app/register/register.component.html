@@ -1,0 +1,43 @@
+
+    <div class="registration-page">
+        <div class="card">
+        <form [formGroup]="registrationForm" (ngSubmit)="dosubmit()">
+            <label class="form-title">Registration</label><br><br>
+            <label class="title" for="person-name">Name</label>
+            <input name="person-name" type="text" placeholder="Enter the Name" autocomplete="off" maxlength="30" formControlName="personName">
+            <span *ngIf="registrationForm.get('personName')!.touched && registrationForm.get('personName')!.hasError('required')">Name field is required!</span>
+            <span *ngIf="registrationForm.get('personName')!.touched && registrationForm.get('personName')!.hasError('pattern')">Name field is not in correct format!</span>
+            <span *ngIf="registrationForm.get('personName')!.touched && registrationForm.get('personName')!.hasError('maxlength')">Name field should be smaller than 30 digits!</span><br>
+            <label class="title" for="email">Email Address</label>
+            <input name="email" type="email" placeholder="Enter the Email" autocomplete="off" maxlength="30" formControlName="emailText">
+            <span *ngIf="registrationForm.get('emailText')!.touched && registrationForm.get('emailText')!.hasError('required')">Email field is required!</span>
+            <span *ngIf="registrationForm.get('emailText')!.touched && registrationForm.get('emailText')!.hasError('email')">Email field is not in correct format!</span>
+            <span *ngIf="registrationForm.get('emailText')!.touched && registrationForm.get('emailText')!.hasError('maxlength')">Email field should be smaller than 30 digits!</span><br>
+            <label class="title"for="phoneNumber">Phone Number</label>
+            <input name="phoneNumber" type="number" placeholder="Enter the Phone Number" formControlName="phoneNumber" >
+            <span *ngIf="registrationForm.get('phoneNumber')!.touched && registrationForm.get('phoneNumber')!.hasError('required')">Phone Number field is required!</span>
+            <span *ngIf="registrationForm.get('phoneNumber')!.touched && registrationForm.get('phoneNumber')!.hasError('pattern')">Phone number should be of 10 digits!</span><br>
+            <label class="title" for="address">Address</label>
+            <input name="address" id="address" type="text" placeholder="Enter the Address" formControlName="addressText" >
+            <span *ngIf="registrationForm.get('addressText')!.touched && registrationForm.get('addressText')!.hasError('required')">Address field is required!</span>
+            <span *ngIf="registrationForm.get('addressText')!.touched && registrationForm.get('addressText')!.hasError('maxlength')">Address should be smaller than 50 digits!</span><br>
+            <label class="title" for="password">Enter the Password</label>
+            <input name="password" type="text" placeholder="Enter the Password" formControlName="passwordText" >
+            <span *ngIf="registrationForm.get('passwordText')!.touched && registrationForm.get('passwordText')!.hasError('required')">Password field is required!</span>
+            <span *ngIf="registrationForm.get('passwordText')!.touched && registrationForm.get('passwordText')!.hasError('pattern')">Password field is not in correct format!</span>
+            <span *ngIf="registrationForm.get('passwordText')!.touched && registrationForm.get('passwordText')!.hasError('maxlength')">Password field should be smaller than 30 digits!</span><br>
+            <label class="title" for="password">Confirm the Password</label>
+            <input name="confirm-password" type="text" placeholder="Enter the Password" formControlName="confirmPasswordText" >
+            <span *ngIf="registrationForm.get('confirmPasswordText')!.touched && registrationForm.get('confirmPasswordText')!.hasError('required')">Password field is required!</span>
+            <span *ngIf="registrationForm.get('confirmPasswordText')!.touched && registrationForm.get('confirmPasswordText')!.hasError('pattern')">Password field is not in correct format!</span>
+            <span *ngIf="registrationForm.get('confirmPasswordText')!.touched && registrationForm.get('confirmPasswordText')!.hasError('maxlength')">Password field should be smaller than 30 digits!</span>
+            <span *ngIf="(registrationForm.get('confirmPasswordText')!.touched && registrationForm.hasError('mismatch'))">Password field is not same as above!</span><br><br>
+            <label id="registration-result"></label>
+            <br>
+            <button type="submit" name="submit" [disabled]="!registrationForm.valid">Register</button>
+        </form>   
+        
+        </div>
+    </div>
+
+

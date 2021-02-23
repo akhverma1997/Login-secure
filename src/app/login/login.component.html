@@ -1,0 +1,23 @@
+
+    <div class="login-page">
+        <div class="card">
+        <form [formGroup]="loginForm" (ngSubmit)="dosubmit()">
+            <label class="form-title">Login</label><br><br>
+            <label class="title" for="email">Enter the Email</label>
+            <input name="email" type="email" placeholder="Enter the Email" autocomplete="off" maxlength="30" formControlName="emailText">
+            <span *ngIf="loginForm.get('emailText')!.touched && loginForm.get('emailText')!.hasError('required')">Email field is required!</span>
+            <span *ngIf="loginForm.get('emailText')!.touched && loginForm.get('emailText')!.hasError('email')">Email field is not in correct format!</span>
+            <span *ngIf="loginForm.get('emailText')!.touched && loginForm.get('emailText')!.hasError('maxlength')">Email field should be smaller than 30 digits!</span><br>
+            <label class="title" for="password">Enter the Password</label>
+            <input name="password" type="number" placeholder="Enter the Password" formControlName="passwordText" >
+            <span *ngIf="loginForm.get('passwordText')!.touched && loginForm.get('passwordText')!.hasError('required')">Password field is required!</span>
+            <span *ngIf="loginForm.get('passwordText')!.touched && loginForm.get('passwordText')!.hasError('pattern')">Password field is not in correct format!</span>
+            <span *ngIf="loginForm.get('passwordText')!.touched && loginForm.get('passwordText')!.hasError('maxlength')">Password field should be smaller than 30 digits!</span><br><br>
+            <label id="login-result"></label>
+            <br>
+            <button type="submit" name="submit" id="submit" [disabled]="!loginForm.valid">Login</button>
+        </form>   
+        
+        </div>
+    </div>
+

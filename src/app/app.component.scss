@@ -1,0 +1,20 @@
+.heading {
+    display: flex;
+    flex-direction: row;
+
+    button {
+        margin : 20px;
+        border-radius: 4px;
+        color: white;
+        float : left;
+        width : 100px;
+        height: 40px;
+        background-color: grey;
+        text-align: center;
+
+        &:hover {
+            color:darkorange;
+            cursor: pointer;
+        }
+    }
+}
